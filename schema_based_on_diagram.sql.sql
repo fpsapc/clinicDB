@@ -55,3 +55,8 @@ ALTER TABLE
     "medical_histories" ADD CONSTRAINT "medical_histories_patient_id_foreign" FOREIGN KEY("patient_id") REFERENCES "patients"("id");
 ALTER TABLE
     "invoices" ADD CONSTRAINT "invoices_medical_history_id_foreign" FOREIGN KEY("medical_history_id") REFERENCES "medical_histories"("id");
+    
+CREATE TABLE medical_documents (
+  medical_histories_id INT references medical_histories(id), 
+  treatments_id INT references treatments(id)
+  );
