@@ -11,6 +11,8 @@ CREATE TABLE "medical_histories"(
     "patient_id" INTEGER NOT NULL,
     "status" VARCHAR(255) NOT NULL
 );
+CREATE INDEX "medical_histories_patient_id_index" ON
+    "medical_histories"("patient_id");
 ALTER TABLE
     "medical_histories" ADD PRIMARY KEY("id");
 ALTER TABLE
@@ -23,6 +25,10 @@ CREATE TABLE "invoice_items"(
     "invoice_id" INTEGER NOT NULL,
     "treatment_id" INTEGER NOT NULL
 );
+CREATE INDEX "invoice_items_invoice_id_index" ON
+    "invoice_items"("invoice_id");
+CREATE INDEX "invoice_items_treatment_id_index" ON
+    "invoice_items"("treatment_id");
 ALTER TABLE
     "invoice_items" ADD PRIMARY KEY("id");
 ALTER TABLE
@@ -43,6 +49,8 @@ CREATE TABLE "invoices"(
     "payed_at" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     "medical_history_id" BIGINT NOT NULL
 );
+CREATE INDEX "invoices_medical_history_id_index" ON
+    "invoices"("medical_history_id");
 ALTER TABLE
     "invoices" ADD PRIMARY KEY("id");
 ALTER TABLE
